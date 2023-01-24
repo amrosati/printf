@@ -24,6 +24,9 @@ int print_str(va_list args)
 	char *str = va_arg(args, char *);
 	int printed = 0;
 
+	if (str == NULL || *str == '\0')
+		return (0);
+
 	for (; *str; str++, printed++)
 		write(1, str, 1);
 
