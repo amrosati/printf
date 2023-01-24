@@ -24,11 +24,8 @@ int handle_fmt(const char *format, va_list args, int *ind)
 
 	if (types[i].fmt == '\0')
 	{
-		(*ind)--;
-		write(1, &format[*ind], 2);
-		(*ind)++;
-		return (2);
+		return (write(1, &format[*ind - 1], 2));
 	}
 
-	return (-1);
+	return (0);
 }
