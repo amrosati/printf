@@ -7,19 +7,20 @@
 
 #define UNUSED(var) (void)(var)
 /* Data Structures */
+
 /**
  * struct fmt - fmt_t
  *
  * @fmt: the format specifier
  * @func: the associated function
  */
-
-typedef struct
+struct fmt
 {
 	char fmt;
 	int (*func)(va_list);
-} fmt_t;
+};
 
+typedef struct fmt fmt_t;
 /* Functions Prototypes */
 
 int _printf(const char *, ...);

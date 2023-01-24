@@ -2,9 +2,9 @@
 
 /**
  * handle_fmt - handles printing formats specifieres
- * @fmt: formatted string
- * @list: arguments list
- * @ind: pointer to fmt index
+ * @format: formatted string
+ * @args: arguments list
+ * @ind: pointer to format index
  *
  * Return: number of bytes printed
  */
@@ -22,13 +22,13 @@ int handle_fmt(const char *format, va_list args, int *ind)
 		if (format[*ind] == types[i].fmt)
 			return (types[i].func(args));
 
-	if (!types[i].fmt)
+	if (types[i].fmt == '\0')
 	{
-		--(*ind);
+		(*ind)--;
 		write(1, &format[*ind], 2);
-		++*ind;
+		(*ind)++;
 		return (2);
 	}
 
-	return (0);
+	return (-1);
 }
