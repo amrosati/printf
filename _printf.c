@@ -16,21 +16,23 @@ int _printf(const char * format, ...)
 		return (-1);
 
 	va_start(args, format);
-	for (i = 0; format[i]; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		j = i;
 		while (format[i] != '%')
 		{
 			i++;
 
-			if (!format[i])
+			if (format[i] == '\0')
 				printed_chars += write(1, &format[j], (i - j));
+
 			if (format[i] == '%')
 				printed_chars += write(1, &format[j], (i - j));
 		}
 
-		if (format[i++] == '%')
+		if (format[i] == '%')
 		{
+			i++;
 			if (format[i])
 				printed_chars += handle_fmt(format, args, &i);
 		}
