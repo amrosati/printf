@@ -6,6 +6,7 @@
 #include <unistd.h>
 
 #define UNUSED(var) (void)(var)
+
 /* Data Structures */
 
 /**
