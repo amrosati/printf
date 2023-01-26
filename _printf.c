@@ -29,8 +29,6 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] != '\0')
 				printed_chars += handle_fmt(format, args, &i);
-			else
-				printed_chars += print_percent(args);
 		}
 	}
 
