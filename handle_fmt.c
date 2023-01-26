@@ -10,7 +10,7 @@
  */
 int handle_fmt(const char *format, va_list args, int *ind)
 {
-	int i;
+	int i, printed_chars = 0;
 	fmt_t types[] = {
 		{'c', print_char},
 		{'s', print_str},
@@ -18,14 +18,20 @@ int handle_fmt(const char *format, va_list args, int *ind)
 		{'\0', NULL}
 	};
 
-	for (i = 0; types[i].fmt && format[*ind]; i++)
+	for (i = 0; types[i].fmt != '\0' && format[*ind] != '\0'; i++)
 		if (format[*ind] == types[i].fmt)
-			return (types[i].func(args));
+		{
+			printed_chars += (types[i].func(args));
+			break;
+		}
 
 	if (types[i].fmt == '\0')
 	{
-		return (write(1, &format[*ind - 1], 2));
+		if (format[*ind] != '\0')
+			printed_chars += write(1, &format[(*ind - 1)], 2);
+		else
+			return (printed_chars);
 	}
 
-	return (0);
+	return (printed_chars);
 }
