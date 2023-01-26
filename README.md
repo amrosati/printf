@@ -10,8 +10,9 @@ If an error occurred, the function will return -1.
 
 Function prototype: **int _printf(const char *format, ...);***
 
-Further explanation will written while building the function...
+Further explanation will be written while building the function...
 
 ## **Team**
 Amro Sati
+
 D'von Devon
