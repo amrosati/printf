@@ -25,12 +25,15 @@ int print_str(va_list args)
 	int printed = 0;
 
 	if (str == NULL || *str == '\0')
-		return (0);
+		return (write(1, "(null)", 6));
 
-	for (; *str; str++, printed++)
+	for (; *str; str++)
+	{
 		write(1, str, 1);
+		printed++;
+	}
 
-	return (printed - 1);
+	return (printed);
 }
 
 /**
