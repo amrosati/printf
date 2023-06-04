@@ -10,7 +10,7 @@ int main(void)
 
 	fflush(stdout);
 
-	if (len == len2)
+	if (len != len2)
 	{
 		printf("Lenghs differ.\n", len, len2);
 		fflush(stdout);

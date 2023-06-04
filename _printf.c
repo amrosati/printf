@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			if (format[i] != '\0')
 				printed_chars += handle_fmt(format, args, &i);
 			else
-				return (-1)
+				return (-1);
 		}
 	}
 
