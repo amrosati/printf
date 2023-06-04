@@ -1,5 +1,6 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef __MAIN_H__
+#define __MAIN_H__
+
 
 #include <stdlib.h>
 #include <stdarg.h>
@@ -7,7 +8,8 @@
 
 #define UNUSED(var) (void)(var)
 
-/* Data Structures */
+
+/** Data Structures **/
 
 /**
  * struct fmt - fmt_t
@@ -15,20 +17,22 @@
  * @fmt: the format specifier
  * @func: the associated function
  */
-struct fmt
+typedef struct
 {
 	char fmt;
 	int (*func)(va_list);
-};
+} fmt_t;
 
-typedef struct fmt fmt_t;
-/* Functions Prototypes */
+
+/** Functions Prototypes **/
 
 int _printf(const char *, ...);
 int handle_fmt(const char *, va_list, int *);
 
+/* Types handling Functions */
 int print_char(va_list);
 int print_str(va_list);
 int print_percent(va_list);
 
-#endif /* _MAIN_H_ */
+
+#endif /** __MAIN_H__ **/
