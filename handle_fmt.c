@@ -14,6 +14,8 @@ int handle_fmt(const char *format, va_list args, int *ind)
 	fmt_t types[] = {
 		{'c', print_char},
 		{'s', print_str},
+		{'i', print_int},
+		{'d', print_int},
 		{'%', print_percent},
 		{'\0', NULL}
 	};
