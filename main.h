@@ -36,10 +36,15 @@ int print_char(va_list);
 int print_str(va_list);
 int print_percent(va_list);
 int print_int(va_list);
+int print_bin(va_list);
 
 /* UTILS */
 int count_digits(int);
 void print_number(int);
+char *convert(unsigned long int, int, int);
 
+/* Write Functions */
+int _putchar(char);
+int _puts(char *);
 
 #endif /** __MAIN_H__ **/

@@ -16,6 +16,7 @@ int handle_fmt(const char *format, va_list args, int *ind)
 		{'s', print_str},
 		{'i', print_int},
 		{'d', print_int},
+		{'b', print_bin},
 		{'%', print_percent},
 		{'\0', NULL}
 	};
