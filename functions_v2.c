@@ -23,12 +23,10 @@ int print_bin(va_list arg)
  */
 int print_unum(va_list arg)
 {
-	unsigned long int num = (unsigned long int) va_arg(arg, unsigned long int);
-	int printed = count_digits((int) num);
+	unsigned int num = va_arg(arg, unsigned long int);
+	char *val = convert(num, 10, 0);
 
-	print_number((int) num);
-
-	return (printed);
+	return (_puts(val));
 }
 
 /**

@@ -1,26 +1,24 @@
 #include "../main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - test number handling spicifier
- *
- * Return: 0 (on success)
- */
+ *  * main - Entry point
+ *   *
+ *    * Return: 0 on success, error code otherwise
+ *     */
 int main(void)
 {
 	int len, len2;
 
-	len = _printf("se %u to %u seco\n", 34, -43);
-	len2 = printf("se %u to %u seco\n", 34, -43);
-
+	len = _printf("%u", -1024);
+	len2 = printf("%u", -1024);
 	fflush(stdout);
-
 	if (len != len2)
 	{
-		printf("\n[%d] \t [%d]\nLengths diffir\n", len, len2);
+		printf("Lengths differ.\n");
 		fflush(stdout);
 		return (1);
 	}
-
 	return (0);
 }
