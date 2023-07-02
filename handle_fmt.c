@@ -12,12 +12,11 @@ int handle_fmt(const char *format, va_list args, int *ind)
 {
 	int i, printed_chars = 0;
 	fmt_t types[] = {
-		{'c', print_char},
-		{'s', print_str},
-		{'i', print_int},
-		{'d', print_int},
-		{'b', print_bin},
-		{'%', print_percent},
+		{'c', print_char}, {'s', print_str},
+		{'i', print_int}, {'d', print_int},
+		{'b', print_bin}, {'u', print_unum},
+		{'o', print_oct}, {'x', print_hex},
+		{'X', print_HEX}, {'%', print_percent},
 		{'\0', NULL}
 	};
 

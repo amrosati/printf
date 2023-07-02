@@ -37,6 +37,10 @@ int print_str(va_list);
 int print_percent(va_list);
 int print_int(va_list);
 int print_bin(va_list);
+int print_unum(va_list);
+int print_oct(va_list);
+int print_hex(va_list);
+int print_HEX(va_list);
 
 /* UTILS */
 int count_digits(int);
