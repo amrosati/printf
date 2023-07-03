@@ -9,6 +9,7 @@
 #include <stdio.h>
 
 #define UNUSED(var) (void)(var)
+#define BUFFSIZ	1024
 
 
 /** Data Structures **/
@@ -26,28 +27,39 @@ typedef struct fmt
 } fmt_t;
 
 
-/** Functions Prototypes **/
+/*** Functions Prototypes ***/
 
+/* Key Functions */
 int _printf(const char *, ...);
-int handle_fmt(const char *, va_list, int *);
+int handle_format(const char *, va_list, int *);
 
-/* Types handling Functions */
+/** Types handling Functions **/
+
+/* Characters */
 int print_char(va_list);
 int print_str(va_list);
 int print_percent(va_list);
+
+/* Numbers */
 int print_int(va_list);
-int print_bin(va_list);
 int print_unum(va_list);
+
+/* Number Bases */
+int print_bin(va_list);
 int print_oct(va_list);
 int print_hex(va_list);
 int print_HEX(va_list);
 
-/* UTILS */
+/** UTILS **/
+
+/* Numbers Handlers */
 int count_digits(int);
 void print_number(int);
+
+/* Converter to Base */
 char *convert(unsigned long int, int, int);
 
-/* Write Functions */
+/** Write Functions **/
 int _putchar(char);
 int _puts(char *);
 

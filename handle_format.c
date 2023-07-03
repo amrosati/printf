@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * handle_fmt - handles printing formats specifieres
+ * handle_format - handles printing formats specifieres
  * @format: formatted string
  * @args: arguments list
  * @ind: pointer to format index
  *
  * Return: number of bytes printed
  */
-int handle_fmt(const char *format, va_list args, int *ind)
+int handle_format(const char *format, va_list args, int *ind)
 {
 	int i, printed_chars = 0;
 	fmt_t types[] = {

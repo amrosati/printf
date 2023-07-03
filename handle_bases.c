@@ -14,21 +14,6 @@ int print_bin(va_list arg)
 	return (_puts(val));
 }
 
-
-/**
- * print_unum - Writes unsigned values to stdout
- * @arg: Argument from argument list
- *
- * Return: Number of bytes printed
- */
-int print_unum(va_list arg)
-{
-	unsigned int num = va_arg(arg, unsigned long int);
-	char *val = convert(num, 10, 0);
-
-	return (_puts(val));
-}
-
 /**
  * print_oct - Writes octal values to stdout
  * @arg: Argument from argument list
