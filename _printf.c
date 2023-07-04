@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, printed_chars = 0;
+	int i, bytes = 0;
 
 	va_list args;
 
@@ -21,19 +21,19 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			write(1, &format[i], 1);
-			printed_chars++;
+			_putchar(format[i]);
+			bytes++;
 		}
 		else
 		{
 			i++;
 			if (format[i] != '\0')
-				printed_chars += handle_format(format, args, &i);
+				bytes += handle_format(format, args, &i);
 			else
 				return (-1);
 		}
 	}
 
 	va_end(args);
-	return (printed_chars);
+	return (bytes);
 }

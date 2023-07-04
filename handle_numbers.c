@@ -21,12 +21,12 @@ int print_int(va_list arg)
 }
 
 /**
- * print_unum - Writes unsigned integer values to stdout
+ * print_uint - Writes unsigned integer values to stdout
  * @arg: Argument from argument list
  *
  * Return: Number of bytes printed
  */
-int print_unum(va_list arg)
+int print_uint(va_list arg)
 {
 	unsigned int num = va_arg(arg, unsigned int);
 	char *val = convert(num, 10, 0);

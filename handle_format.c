@@ -10,30 +10,30 @@
  */
 int handle_format(const char *format, va_list args, int *ind)
 {
-	int i, printed_chars = 0;
-	fmt_t types[] = {
-		{'c', print_char}, {'s', print_str},
-		{'i', print_int}, {'d', print_int},
-		{'b', print_bin}, {'u', print_unum},
-		{'o', print_oct}, {'x', print_hex},
-		{'X', print_HEX}, {'%', print_percent},
-		{'\0', NULL}
+	int i, bytes = 0, two = 2;
+	fmt_t types[] = {{'c', print_char},
+		{'s', print_str}, {'i', print_int},
+		{'d', print_int}, {'u', print_uint},
+		{'b', print_bin}, {'o', print_oct},
+		{'x', print_hex}, {'X', print_HEX},
+		{'%', print_percent}, {'\0', NULL}
 	};
 
 	for (i = 0; types[i].fmt != '\0' && format[*ind] != '\0'; i++)
 		if (format[*ind] == types[i].fmt)
 		{
-			printed_chars += (types[i].func(args));
+			bytes += types[i].handle(args);
 			break;
 		}
 
 	if (types[i].fmt == '\0')
 	{
 		if (format[*ind] != '\0')
-			printed_chars += write(1, &format[(*ind - 1)], 2);
+			while (two--)
+				bytes += _putchar(format[(*ind - (two - 1))]);
 		else
-			return (printed_chars);
+			return (bytes);
 	}
 
-	return (printed_chars);
+	return (bytes);
 }
