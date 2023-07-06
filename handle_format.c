@@ -30,7 +30,7 @@ int handle_format(const char *format, va_list args, int *ind)
 	{
 		if (format[*ind] != '\0')
 			while (two--)
-				bytes += _putchar(format[(*ind - (two - 1))]);
+				bytes += _putchar(format[(*ind - two)]);
 		else
 			return (bytes);
 	}
