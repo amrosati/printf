@@ -40,5 +40,5 @@ int print_percent(va_list arg)
 {
 	UNUSED(arg);
 
-	return (write(1, "%%", 1));
+	return (_putchar('%'));
 }

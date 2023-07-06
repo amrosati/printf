@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	int len = -1, len2;
+	int len, len2;
 
 	len = _printf("%");
 	len2 = printf("%");
@@ -12,7 +12,7 @@ int main(void)
 
 	if (len != len2)
 	{
-		printf("Lenghs differ.\n", len, len2);
+		_printf("[%d] [%d] Lenghs differ.\n", len, len2);
 		fflush(stdout);
 		return (1);
 	}
