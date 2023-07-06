@@ -8,19 +8,5 @@
  */
 int _putchar(char c)
 {
-	static char buff[BUFFSIZ];
-	static int i;
-
-	if (c == -1 || i >= BUFFSIZ)
-	{
-		write(1, &buff, i);
-		i *= 0;
-	}
-	if (c != -1)
-	{
-		buff[i] = c;
-		i++;
-	}
-
-	return (1);
+	return (write(1, &c, 1));
 }
